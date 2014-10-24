@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>javascript-multiline-string test</title>
+	<script src="multiline.js"></script>
+</head>
+<body>
+	<div id="wrap1"></div>
+	
+	<div id="wrap2"></div>
+	<div id="wrap3"></div>
+	<div id="wrap4"></div>
+	
+	<script>
+		//普通的提取字符串
+        var s1 = multiline(function(){
+			/*<div class="nav">
+				<ul>
+					<li><a class="active" href="#1">首页--1</a></li>
+					<li><a href="#2">游戏--1</a></li>
+					<li><a href="#3">咨询--1</a></li>
+					<li><a href="#4">图文--1</a></li>
+				</ul>
+			</div>*/
+		});
+		
+		//具有变量的，提取多行字符串
+        var s2 = multiline({
+			'name_1' : 'paper',
+			'name_2' : 'hello world',
+			'name_3' : 'javascript',
+			'name_4' : 'python'
+        },function(){
+			/*<div class="nav">
+				<ul>
+					<li><a class="active" href="#1">首页--2</a></li>
+					<li><a href="#2">游戏--2</a></li>
+					<li><a href="#3">咨询--2</a></li>
+					<li><a href="#4">图文--2</a></li>
+				</ul>
+			</div>*/
+			
+			/*<h2>变量替换</h2>
+			<div class="main">
+				<ul>
+					<li>{{name_1}}</li>
+					<li>{{name_2}}</li>
+					<li>{{name_3}}</li>
+					<li>{{name_4}}</li>
+				</ul>
+			</div>*/
+            
+			/*<div class="footer">
+				<p>game over</p>
+			</div>*/
+        });
+		
+		document.getElementById("wrap1").innerHTML = s1[0];
+		
+		document.getElementById("wrap2").innerHTML = s2[0];
+		document.getElementById("wrap3").innerHTML = s2[1];
+		document.getElementById("wrap4").innerHTML = s2[2];
+	</script>
+</body>
+</html>
