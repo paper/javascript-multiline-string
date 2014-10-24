@@ -9,7 +9,7 @@
 	function getStringByObject(obj, comments){
 		var s = getString(comments);
 		
-		return s.replace(/{{(\w+)}}/g, function(a, b){
+		return s.replace(/\{\{(\w+)\}\}/g, function(a, b){
 			if(b){
 				return obj[b];
 			}
@@ -31,11 +31,11 @@
 		// 取出所有的注释
 		funcString.replace(/\/\*([\s\S])*?\*\//g, function(a){
 			if (a) {
-			  temp.push(a);
+				temp.push(a);
 			}
 		});
 		
-		if(temp.length == 0) return [''];
+		if(temp.length === 0) return [''];
 		
 		len = temp.length;
 		
@@ -51,7 +51,7 @@
 		
 		// 返回的是解析之后的数组
 		return ret;
-	}
+	};
 	
 	// AMD
 	if (typeof exports === 'object') {
