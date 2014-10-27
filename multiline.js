@@ -38,7 +38,7 @@
 			}
 		});
 		
-		if(temp.length === 0) return [''];
+		if(temp.length === 0) return '';
 		
 		len = temp.length;
 		
@@ -53,7 +53,7 @@
 		}
 		
 		// 返回的是解析之后的数组
-		return ret;
+		return ret.length === 1 ? ret[0] : ret;
 	};
 	
 	// AMD
