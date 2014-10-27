@@ -1,3 +1,6 @@
+/**
+	from https://github.com/paper/javascript-multiline-string
+*/
 ;(function(root){
 	
 	// 提取注释里面的字符串
