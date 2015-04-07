@@ -68,6 +68,26 @@ define(function(require, exports, module) {
     return ret.length === 1 ? ret[0] : ret;
   };
   
+  // 动态加载css
+  multiline.addSheet = function(cssStr, cssId){
+    var head = document.getElementsByTagName("head")[0] || document.body;
+    
+    style = document.createElement("style");
+    style.setAttribute('type', 'text/css');
+    
+    if( cssId ){
+      style.id = cssId;
+    }
+    
+    if (style.styleSheet) { // IE
+      style.styleSheet.cssText = cssStr;
+    }else { // w3c
+      style.appendChild(document.createTextNode(cssStr));
+    }
+    
+    head.appendChild(style);
+  }
+  
   module.exports = multiline;
 
 });
